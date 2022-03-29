@@ -1,0 +1,87 @@
+<!doctype html>
+<html amp4email data-css-strict>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+   <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet"> 
+  <style amp-custom>
+    h1 {
+      margin: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+    }
+    .center {
+      text-align: center;
+    }
+    .carousel-preview {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <amp-state id="myState">
+    <script type="application/json">
+    {"pets": 
+      [
+       {
+    	"name": "Cherry",
+        "description": "Relaxed but also mysterious!"
+       },
+       {
+    	"name": "Harley",
+        "description": "Playful and painfully cute!"
+       },
+       {
+    	"name": "Max",
+        "description": "Huge and sleepy!"
+        }
+      ]
+    }
+    </script>
+  </amp-state>
+  <h1>
+    BettaFish.com
+  </h1>
+  <amp-img src="https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg"
+           layout="responsive"
+           alt="Betta Fish swimming"
+           width="620"
+           height="400"
+           class="first-image"
+           ></amp-img>
+ <h1>
+   Gallery of Betta Fish
+  </h1> 
+  <amp-carousel id="carousel-with-preview"
+                layout="responsive"
+                width="620"
+                height="400"
+                type="slides"
+                on="slideChange:AMP.setState({currentPet: event.index})"
+                >
+    <amp-img layout="fill" src="https://m.media-amazon.com/images/I/61g9tbXUz3L._AC_SL1500_.jpg"
+             ></amp-img>
+    <amp-img layout="fill" src="https://media.istockphoto.com/photos/multicolor-betta-fish-siamese-fighting-fish-on-black-backgroundn-picture-id1168886829?k=20&m=1168886829&s=612x612&w=0&h=HrQ9DQ9fAAczzM3K7_FI3BU_euIdM6d63K4R5TRn1DU="
+             ></amp-img>
+    <amp-img layout="fill" src="https://media.istockphoto.com/photos/closeup-of-siamese-fighting-fish-picture-id157618682?b=1&k=20&m=157618682&s=170667a&w=0&h=YlYZejPb9wNSbKF7C-2vUahakObubfETVUbcTrfm_Bg="
+             ></amp-img>
+  </amp-carousel>
+  
+  <div class="center">
+    <h1>
+      <span [text]="myState.pets[currentPet].name">Cherry</span> is not for sale.
+      </h1>
+  </div>
+  
+      <p class="center">About <span [text]="myState.pets[currentPet].name">Cherry</span></p>
+      <p class="center" [text]="myState.pets[currentPet].description">So lazzzzy!</p>
+    
+    
+  
+</body>
+</html>
